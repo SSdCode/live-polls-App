@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUpActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tw1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="New User Sign Up"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/etFname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tw1"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginRight="48dp"
+            android:hint="First Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etLname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etFname"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:hint="Last Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etLname"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:drawableStart="@drawable/ic_location_on_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="City"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etCity"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:drawableStart="@drawable/ic_email_24"
+            android:drawablePadding="5dp"
+            android:hint="E-Mail ID"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etMno"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etEmail"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:drawableStart="@drawable/ic_phone_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Mobile No."
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/etPass1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etMno"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Enter Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/etPass2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/etPass1"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Re-enter Password"
+            android:inputType="textPassword" />
+
+        <CheckBox
+            android:id="@+id/cbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etPass2"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:text="Show Password" />
+
+        <Button
+            android:id="@+id/btnSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cbox"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_round_corner"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</ScrollView>

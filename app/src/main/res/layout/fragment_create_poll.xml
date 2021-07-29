@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.CreatePollFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp">
+
+            <TextView
+                android:id="@+id/title_CreatePoll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/happymonkey_regular"
+                android:text="Create Poll"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="48sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCreatePollOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_CreatePoll"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/button_white_round_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:text="Create Poll"
+                android:textSize="28sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnMyPollsOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnCreatePollOptions"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/button_white_round_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:text="My Polls"
+                android:textSize="28sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPublicPollsOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnMyPollsOptions"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/button_white_round_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:text="Public Polls"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/title_Question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnPublicPollsOptions"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/happymonkey_regular"
+                android:padding="4dp"
+                android:text="Question"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_Question"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:hint="Enter your question"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/title_Options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etQuestion"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/happymonkey_regular"
+                android:padding="4dp"
+                android:text="Options"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/etOption1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_Options"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:hint="Enter Option1"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/etOption2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etOption1"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:hint="Enter Option2"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/etOption3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etOption2"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:hint="Enter Option3"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <EditText
+                android:id="@+id/etOption4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etOption3"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edittext_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:hint="Enter Option4"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <CheckBox
+                android:id="@+id/publicCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etOption4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:checked="true"
+                android:text="Public"
+                android:textSize="28sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCreatePoll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/publicCheck"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/button_white_round_corner"
+                android:fontFamily="@font/happymonkey_regular"
+                android:padding="8dp"
+                android:text="Create Poll"
+                android:textSize="28sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>
