@@ -148,7 +148,13 @@ public class CreatePollFragment extends Fragment {
                     Messagee.message(getContext(), "question cannot be empty!");
                 } else if (option1[0].matches("") || option2[0].matches("") || option3[0].matches("") || option4[0].matches("")) {
                     Messagee.message(getContext(), "Option cannot be empty!");
-                } else {
+                } if(option1[0].equals(option2[0]) || option1[0].equals(option3[0]) || option1[0].equals(option4[0])){
+                    Messagee.message(getContext(), "Options can not be same!");
+                }else if(option2[0].equals(option3[0]) || option2[0].equals(option4[0])){
+                    Messagee.message(getContext(), "Options can not be same!");
+                }else if(option3[0].equals(option4[0])){
+                    Messagee.message(getContext(), "Options can not be same!");
+                }else {
                     DatabaseHelper helper = new DatabaseHelper(getContext());
                     SQLiteDatabase database = helper.getWritableDatabase();
 

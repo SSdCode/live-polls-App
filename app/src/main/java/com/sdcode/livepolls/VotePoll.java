@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sdcode.livepolls.database.DatabaseHelper;
+import com.sdcode.livepolls.extraclasses.Messagee;
 
 public class VotePoll extends AppCompatActivity {
     TextView tvQuestion;
@@ -48,21 +49,46 @@ public class VotePoll extends AppCompatActivity {
         final String op4 = i.getStringExtra("op4");
 
 
-        Cursor cursor = database.rawQuery("SELECT * FROM Question", null);
-
-        if (cursor.getCount() == 0) {
+//"CREATE TABLE Question(sno INTEGER PRIMARY KEY AUTOINCREMENT,question_text VARCHAR(255),livestatus INTEGER, publicstatus INTEGER,EMAIL VARCHAR(255),timestamp datetime default current_timestamp)";
+        Cursor cursor_question = database.rawQuery("SELECT * FROM Question", null);
+//"CREATE TABLE Choice(chId INTEGER PRIMARY KEY AUTOINCREMENT, questionId INTEGER NOT NULL REFERENCES Question (sno), choice_text VARCHAR(255),votes INTEGER)";
+        Cursor cursor_choice = database.rawQuery("SELECT * FROM Choice", null);
+        cursor_choice.moveToPosition(-1);
+        cursor_question.moveToPosition(-1);
+        if (cursor_question.getCount() == 0) {
             Toast.makeText(getApplicationContext(), "No data!", Toast.LENGTH_SHORT).show();
         } else {
-            while (cursor.moveToNext()) {
-                if (qid == cursor.getInt(0)) {
-                    tvQuestion.setText(cursor.getString(1));
-                    rbOp1.setText(op1);
-                    rbOp2.setText(op2);
-                    rbOp3.setText(op3);
-                    rbOp4.setText(op4);
+            while (cursor_question.moveToNext()) {
+                if (qid == cursor_question.getInt(0)) {
+                    tvQuestion.setText(cursor_question.getString(1));
                 }
             }
-            cursor.close();
+            int choice = 0;
+            while (cursor_choice.moveToNext()) {
+                if (qid == cursor_choice.getInt(1)) {
+                    choice++;
+                    String choiceText = cursor_choice.getString(2);
+                    switch (choice) {
+                        case 1:
+                            rbOp1.setText(choiceText);
+                            break;
+                        case 2:
+                            rbOp2.setText(choiceText);
+                            break;
+                        case 3:
+                            rbOp3.setText(choiceText);
+                            break;
+                        case 4:
+                            rbOp4.setText(choiceText);
+                            break;
+                        default:
+                            Messagee.message(getApplicationContext(), "choice no is wrong!");
+                    }
+                }
+
+            }
+            cursor_question.close();
+            cursor_choice.close();
         }
 
 
@@ -77,18 +103,26 @@ public class VotePoll extends AppCompatActivity {
                 } else {
                     String choiceSelected = rbOptionSelected.getText().toString();
                     int votes = 0;
-//"CREATE TABLE Choice(chId INTEGER PRIMARY KEY AUTOINCREMENT, questionId INTEGER NOT NULL REFERENCES Question (sno), choice_text VARCHAR(255),votes INTEGER)";
-                    Cursor cursor = database.rawQuery("SELECT * FROM Choice", null);
 
-                    cursor.moveToPosition(-1);
-                    while (cursor.moveToNext()) {
-                        if (cursor.getString(2).equals(choiceSelected)) {
-                            votes = cursor.getInt(3) + 1;
-                            break;
+
+//"CREATE TABLE Choice(chId INTEGER PRIMARY KEY AUTOINCREMENT, questionId INTEGER NOT NULL REFERENCES Question (sno), choice_text VARCHAR(255),votes INTEGER)";
+                    Cursor cursor_choice = database.rawQuery("SELECT * FROM Choice", null);
+
+                    cursor_question.moveToPosition(-1);
+                    cursor_choice.moveToPosition(-1);
+
+                    while (cursor_choice.moveToNext()) {
+                        if (cursor_choice.getInt(1) == qid) {
+                            if (cursor_choice.getString(2).equals(choiceSelected)) {
+                                votes = cursor_choice.getInt(3) + 1;
+                                break;
+                            }
                         }
                     }
+
+
                     ContentValues cv = new ContentValues();
-                    cv.put("votes",votes); //These Fields should be your String values of actual column names
+                    cv.put("votes", votes); //These Fields should be your String values of actual column names
 
                     database.update("Choice", cv, "choice_text = ? and questionId = ?", new String[]{choiceSelected, String.valueOf(qid)});
 //                    database.execSQL("UPDATE " + "Choice" + " SET votes =  " + votes + " WHERE choice_text = " + "'" + choiceSelected + "'");
